@@ -15,29 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
       main.style.marginTop = `0px`;
     }
   }
+  function onEntry(entry){
+    entry.forEach(change => {
+      if(change.isIntersecting) {
+        change.target.classList.add('animate');
+      }
+    });
+  }
+  let options = {
+    threshold: [1]
+  };
+  let observer = new IntersectionObserver(onEntry, options);
 
-  const scrollAnimation = () => {
-    let windowCenter = (window.innerHeight / 2) + window.scrollY;
-    if (scrollItems) {
-      scrollItems.forEach(el => {
-        let scrollOffset = el.offsetTop;
-
-        if (windowCenter >= scrollOffset) {
-          el.classList.add('animate');
-        } else {
-          el.classList.remove('animate');
-        }
-      });
-    }
-
+  for(let elem of scrollItems) {
+    observer.observe(elem);
   }
   // ========== end functions ================  
-
-  headerFixed();
   window.addEventListener('scroll', () => {
     headerFixed();
-    scrollAnimation();
   });
+  
+
 
   if (document.querySelector('.swiper-product')) {
     const swiper = new Swiper('.swiper-product', {

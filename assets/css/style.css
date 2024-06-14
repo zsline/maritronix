@@ -128,10 +128,21 @@ img, video{
 }
 .lt img{
     max-width: 290px;
+    position: relative;
+    z-index: 2;
 }
 .lt h2{
+    position: relative;
+    z-index: 1;
     max-width: 610px;
     font-size: clamp(1.5rem, calc(1.14rem + 1.82vw), 2.5rem);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+.lt.animate h2{
+    transform: translateX(0%);
+    opacity: 1;
 }
 .box-accent{
     background-color: var(--red);
@@ -150,7 +161,22 @@ img, video{
     color: var(--white);
     background-color: var(--red);
     padding: clamp(0.44rem, calc(-0.13rem + 2.84vw), 2rem) 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-out;
 }
+.link-btn.right{
+    transform: translateX(50px);
+}
+.link-btn.left{
+    transform: translateX(-50px);
+}
+.link-btn.animate{
+    opacity: 1;
+    transform: translate(0px);
+    transition: all 0.3s  ease-out;
+}
+
 .link-btn__content{
     position: relative;
     height: 100%;
@@ -183,12 +209,15 @@ img, video{
 /* ========================================== Order Button */
 .order-btn{
     display: block;
-    font-size: 24px;
+    font-size: clamp(0.88rem, calc(0.74rem + 0.68vw), 1.25rem);
     text-transform: uppercase;
-    padding: 32px 21px;
+    padding: 20px 21px;
     background-color: var(--red);
     color: var(--white);
-    width: max-content;
+    width: auto;
+    max-width: 576px;
+    text-align: center;
+    text-wrap: wrap;
 }
 .product-cart .order-btn{
     margin-top: 64px;
@@ -289,19 +318,28 @@ img, video{
     background-color: var(--red);
     left: -14%;
     top: 55%;
-    transform: translateY(-50%);
+    transform: translate(100%, -50%);
     z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+.decor-one.animate{
+    transform: translate(0%, -50%);
 }
 .decor-one::before{
     position: absolute;
     content: '';
     width: 2px;
-    height: 70%;
+    height: 0%;
     background-color: var(--white);
     left: 22%;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
+    transition: all 0.5s ease-in-out;
+
+}
+.decor-one.animate::before{
+    height: 70%;
 }
 .decor-twoo{
     position: absolute;
@@ -310,23 +348,34 @@ img, video{
     background-color: var(--red);
     right: -14%;
     top: 55%;
-    transform: translateY(-50%);
+    transform: translate(-100%, -50%);
     z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+.decor-twoo.animate{
+    transform: translate(0%, -50%);
 }
 .decor-twoo::before{
     position: absolute;
     content: '';
     width: 2px;
-    height: 95%;
+    height: 0%;
     background-color: var(--white);
     right: 22%;
     top: 60%;
     transform: translateY(-50%);
     z-index: 2;
+    transition: all 0.5s ease-in-out;
 }
 .v-four .decor-twoo::before{
     top: 30%;
+    height: 0%;
+    transition: all 0.5s ease-in-out;
+
+}
+.v-four .decor-twoo.animate::before, .decor-twoo.animate::before{
     height: 100%;
+    transform: translateY(-50%);
 }
 .decor-three{
     position: absolute;
@@ -335,19 +384,27 @@ img, video{
     background-color: var(--red);
     left: -14%;
     top: 65%;
-    transform: translateY(-50%);
+    transform: translate(60%, -57%);
+    transition: all 0.5s ease-in-out;
     z-index: 1;
+}
+.decor-three.animate{
+    transform: translate(0%, -50%);
 }
 .decor-three::before{
     position: absolute;
     content: '';
     width: 2px;
-    height: 86%;
+    height: 0%;
     background-color: var(--white);
     left: 48%;
     top: 50%;
     transform: translateY(-50%);
+    transition: all 0.5s ease-in-out;
     z-index: 2;
+}
+.decor-three.animate::before{
+    height: 86%;
 }
 
 /* ========================================== Styles */

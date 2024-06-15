@@ -74,6 +74,12 @@ img, video{
 button{
     border: none;
 }
+form * {
+    outline: none;
+}
+form input:focus:not(input[type=radio]) {
+    box-shadow: 0 0 8px var(--dark-blue);
+}
 .hidden{
     display: none !important;
 }

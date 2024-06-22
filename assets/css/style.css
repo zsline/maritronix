@@ -53,13 +53,15 @@ h2{
     text-transform: uppercase;
     margin-left: auto;
 }
-h4{
-    font-size: clamp(1.25rem, calc(0.98rem + 1.36vw), 2rem);
-    font-weight: 400;
-}
+
 h3{
     font-size: clamp(1.5rem, calc(1.36rem + 0.68vw), 1.88rem);
     font-weight: 200;
+    text-transform: uppercase;
+}
+h4{
+    font-size: clamp(1.25rem, calc(0.98rem + 1.36vw), 2rem);
+    font-weight: 400;
     text-transform: uppercase;
 }
 h4>span{
@@ -122,6 +124,12 @@ height: auto;
     display: flex;
     justify-content: space-between;
     align-items: start;
+    gap: 10px;
+}
+.flex-e{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
     gap: 10px;
 }
 .center{
@@ -619,7 +627,9 @@ height: auto;
 }
 
 /* ========================================== Big Image*/
-
+.helmsman .half{
+    aspect-ratio: unset !important;
+}
 .big-img .home-scout__img{
     max-width: 60%;
     aspect-ratio: 4/2.5;
@@ -909,6 +919,11 @@ height: auto;
         opacity: 0.3;
     }
     .flex-s{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .flex-e{
         flex-direction: column;
         text-align: center;
         align-items: center;

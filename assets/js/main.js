@@ -133,19 +133,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(error === 0){
       document.querySelector('.main').classList.add('_sending');
-      // let response = await fetch('sendmail.php', {
-      //   method: 'POST',
-      //   body: formData
-      // });
-      // if(response.ok){
-      //   let result = await response.json();
-      //   alert(result.message);
-      //   form.reset();
+      let response = await fetch('sendmail.php', {
+        method: 'POST',
+        body: formData
+      });
+      if(response.ok){
+        let result = await response.json();
+        alert(result.message);
+        form.reset();
 
-      // } else {
-      //   alert('Error');
-      // }
-      // console.log(formData);
+      } else {
+        alert('Error');
+      }
+      console.log(formData);
     } else {
       console.log(error);
     }

@@ -351,6 +351,9 @@ height: auto;
     width: 48%;
     aspect-ratio: 1.8/1;
 }
+.half-5 {
+    width:40%
+}
 .half-6{
     width:60%
 }
